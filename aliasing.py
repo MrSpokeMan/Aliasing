@@ -5,9 +5,8 @@ from PIL import Image
 
 res = 256 / 96 * 2  # resolution
 M = 64  # frames in one circle of animation
-L = 32  # amount of layars divided by 2
-r = 0
-n = 3  # quantity of propellers
+L = 32  # amount of layers divided by 2
+n = 5  # quantity of propellers
 j = 0
 
 
@@ -20,6 +19,7 @@ def aliasing():
     background.paste(tmpCrop, (0, j * L))
     j += 1
     if round(j > 512 / L):
+        background.save(f'{n}-prop-{L / 2}-lines.png')
         background.show()
         exit()
 
